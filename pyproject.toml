@@ -1,0 +1,81 @@
+[project]
+name = "llm-agent"
+version = "0.1.0"
+description = ""
+authors = [{ name = "Rômulo Collopy", email = "romulo.collopy@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+dependencies = [
+    "langchain>=0.3.26",
+    "dotenv (>=0.9.9,<0.10.0)",
+    "isort>=6.0.1",
+    "openai>=1.91.0",
+    "python-dotenv>=1.1.1",
+    "langchain-community>=0.3.26",
+    "langchain-openai>=0.3.25",
+    "langchain-google-genai>=2.1.7",
+]
+
+[tool.poetry]
+packages = [{ include = "llm_agent", from = "src" }]
+
+[tool.uv.workspace]
+members = ["llm-agent"]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.16.1",
+ "pre-commit>=4.2.0",
+ "pytest>=8.4.1",
+ "ruff>=0.12.0",
+]
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+pythonpath = "./src"
+
+[tool.pyright]
+extraPaths = ["./src"]
+
+[tool.ruff]
+extend-exclude = []
+line-length = 88
+indent-width = 4
+target-version = "py313"
+
+[tool.ruff.lint]
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.format]
+skip-magic-trailing-comma = true
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+
+[tool.mypy]
+python_version = "3.13"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+exclude = [
+  '^file1\.py$',  # TOML literal string (single-quotes, no escaping necessary)
+  "^file2\\.py$", # TOML basic string (double-quotes, backslash and other characters need escaping)
+]
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+warn_return_any = false
+warn_unused_configs = false
+
+[[tool.mypy.overrides]]
+module = ["somelibrary", "some_other_library"]
+ignore_missing_imports = true
