@@ -6,14 +6,14 @@ authors = [{ name = "Rômulo Collopy", email = "romulo.collopy@gmail.com" }]
 readme = "README.md"
 requires-python = ">=3.13,<4.0"
 dependencies = [
-    "langchain>=0.3.26",
-    "dotenv (>=0.9.9,<0.10.0)",
-    "isort>=6.0.1",
-    "openai>=1.91.0",
-    "python-dotenv>=1.1.1",
-    "langchain-community>=0.3.26",
-    "langchain-openai>=0.3.25",
-    "langchain-google-genai>=2.1.7",
+  "langchain>=0.3.26",
+  "dotenv (>=0.9.9,<0.10.0)",
+  "isort>=6.0.1",
+  "openai>=1.91.0",
+  "python-dotenv>=1.1.1",
+  "langchain-community>=0.3.26",
+  "langchain-openai>=0.3.25",
+  "langchain-google-genai>=2.1.7",
 ]
 
 [tool.poetry]
@@ -27,12 +27,7 @@ requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [dependency-groups]
-dev = [
-    "mypy>=1.16.1",
- "pre-commit>=4.2.0",
- "pytest>=8.4.1",
- "ruff>=0.12.0",
-]
+dev = ["mypy>=1.16.1", "pre-commit>=4.2.0", "pytest>=8.4.1", "ruff>=0.12.0"]
 
 [tool.black]
 line-length = 88

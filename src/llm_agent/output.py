@@ -67,12 +67,9 @@ class CodeFormat(OutputFormat):
 CODE_FORMAT = (
     """CONSTRAINTS: 
     - Use code adhering to SOLID principles
-    - Consider LTS versions of programming languages""",
-    """OUTPUT: 
-    - code block with console format describning the file tree of the solution
-    - code block with the solution
-    - the first line of the code block should contain a comment with the folder/fine_name, matching the file tree
-    - the content of each file in the solution must be in a different code block
-    - a code block for a setup.sh file with a command to install the dependencies of the code 
+    - Consider LTS versions of programming languages
+    - include a setup.sh file with a command to install the dependencies of the code.""",
+    """DESIRED OUTPUT: 
+    - a json structure where the key is the file path relative to the root and the value is the content of the files.
 """,
 )
